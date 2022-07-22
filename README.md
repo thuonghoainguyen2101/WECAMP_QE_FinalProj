@@ -19,6 +19,18 @@ Lecture:
 -   Page Object Model:
 -   Cucumber:
 
+Tool sử dụng:
+
+-   Unit test:
+
+-   API test
+    Unit: Postman
+    Integration:
+    Postman (Collection)
+    _Bonus:_
+
+-   UI E2E automation test scripts: Cypress + Cucumber
+
 Các bước chạy:
 
 -   Vào thư mục dev:
