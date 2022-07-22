@@ -1,0 +1,14 @@
+{
+    "devDependencies": {
+        "cypress": "^10.3.1",
+        "cypress-cucumber-preprocessor": "^4.3.1"
+    },
+    "scripts": {
+        "cypress:open": "cypress open",
+        "cy:tests": "cypress run"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": false,
+        "stepDefinitions": "cypress/e2e/step_definitions"
+    }
+}
