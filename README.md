@@ -15,5 +15,15 @@
 
 Lecture:
 
--   Folder Struct: https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests
+-   Folder Struct:
 -   Page Object Model:
+-   Cucumber:
+
+Các bước chạy:
+
+-   Vào thư mục dev:
+    chạy server = lệnh npm start
+    chạy client = lệnh npm start
+-   Vào thư mục test:
+    nếu chạy script viết = cypress + cucumber: vào thư mục cypress-cucumber-testing, chạy = lệnh npx cypress open
+    nếu chạy script viết = cypress : vào thư mục cypress-testing, chạy = lệnh npx cypress open
