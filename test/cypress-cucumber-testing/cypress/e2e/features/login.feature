@@ -1,28 +1,34 @@
+
 Feature: Login page
 
     Feature Login page will work depending on the user credentials.
 
     Background:
-        Given A user opens a saucelabs website
+        Given A user opens a website
+
     Scenario: Success Login
-        When A user enters the username "standard_user"
+        When A user enters the email "standard_user"
         And A user enters the password "secret_sauce"
         And A user clicks on the login button
-        Then the url will contains the inventory subdirectory
+        Then the website will redirect the user back to homepage
+
     Scenario: Blocked Login
-        When A user enters the username "locked_out_user"
+        When A user enters the email "locked_out_user"
         And A user enters the password "secret_sauce"
         And A user clicks on the login button
-        Then The error message "Epic sadface: Sorry, this user has been locked out." is displayed
-    Scenario: Incorrect Username Login
+        Then The error message "invalid email or password" is displayed
+
+    Scenario: Incorrect email Login
         When A user provides incorrect credentials
-            | username | password     |
+            | email | password     |
             | testName | secret_sauce |
         And A user clicks on the login button
-        Then The error message "Epic sadface: Username and password do not match any user in this service" is displayed
+        Then The error message "invalid email or password" is displayed
+        
     Scenario: Incorrect Password Login
         When A user provides incorrect credentials
-            | username      | password     |
+            | email      | password     |
             | standard_user | testPassword |
         And A user clicks on the login button
-        Then The error message "Epic sadface: Username and password do not match any user in this service" is displayed
+        Then The error message "invalid email or password" is displayed
+

@@ -1,22 +1,22 @@
-class homeSaucePage {
-  elements = {
-    usernameInput: () => cy.get("#user-name"),
-    passwordInput: () => cy.get("#password"),
-    loginBtn: () => cy.get("#login-button"),
-    errorMessage: () => cy.get('h3[data-test="error"]'),
-  };
+class loginPage {
+    elements = {
+        usernameInput: () => cy.get("input[name='email']"),
+        passwordInput: () => cy.get("input[name='password']"),
+        loginBtn: () => cy.get("input[type='submit']"),
+        errorMessage: () => cy.get("h2"),
+    };
 
-  typeUsername(username) {
-    this.elements.usernameInput().type(username);
-  }
+    typeUsername(username) {
+        this.elements.usernameInput().type(username);
+    }
 
-  typePassword(password) {
-    this.elements.passwordInput().type(password);
-  }
+    typePassword(password) {
+        this.elements.passwordInput().type(password);
+    }
 
-  clickLogin() {
-    this.elements.loginBtn().click();
-  }
+    clickLogin() {
+        this.elements.loginBtn().click();
+    }
 }
 
-module.exports = new homeSaucePage();
+module.exports = new loginPage();
