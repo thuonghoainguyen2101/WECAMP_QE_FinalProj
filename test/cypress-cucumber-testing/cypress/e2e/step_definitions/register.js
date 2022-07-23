@@ -27,30 +27,41 @@ Then("Register Page should be loaded successfully", () => {
     cy.url().should("include", registerPage.url);
 });
 
-//         When User types <name> in name input field
-When("User types {string} in name input field", (name) => {
+//         When User types <name> in name input field of Register Page
+When("User types {string} in name input field of Register Page", (name) => {
     console.log(name);
-    cy.get(registerPage.name).type(name);
+    // cy.get(registerPage.name).type(name);
+    registerPage.fillName(name);
 });
 
-//         And User types <email> in email input field
-And("User types {string} in email input field", (email) => {
-    cy.get(registerPage.email).type(email);
+//         And User types <email> in email input field of Register Page
+And("User types {string} in email input field of Register Page", (email) => {
+    // cy.get(registerPage.email).type(email);
+    registerPage.fillEmail(email);
 });
 
-//         And User types <password> in password input field
-And("User types {string} in password input field", (password) => {
-    cy.get(registerPage.password).type(password);
-});
+//         And User types <password> in password input field of Register Page
+And(
+    "User types {string} in password input field of Register Page",
+    (password) => {
+        // cy.get(registerPage.password).type(password);
+        registerPage.fillPassword(password);
+    }
+);
 
-//         And User types <repeatPasword> in repeat password input field
-And("User types {string} in repeat password input field", (repeatPassword) => {
-    cy.get(registerPage.repeatPassword).type(repeatPassword);
-});
+//         And User types <repeatPasword> in repeat password input field of Register Page
+And(
+    "User types {string} in repeat password input field of Register Page",
+    (repeatPassword) => {
+        // cy.get(registerPage.repeatPassword).type(repeatPassword);
+        registerPage.fillRepeatPassword(repeatPassword);
+    }
+);
 
-//         And User clicks on Submit button
-And("User clicks on Submit button", () => {
-    cy.get(registerPage.submitButton).click();
+//         And User clicks on Submit button of Register Page
+And("User clicks on Submit button of Register Page", () => {
+    // cy.get(registerPage.submitButton).click();
+    registerPage.clickSubmitButton();
 });
 
 //         Then User should be redirected to homepage

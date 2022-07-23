@@ -1,21 +1,25 @@
 class loginPage {
-    elements = {
-        usernameInput: () => cy.get("input[name='email']"),
-        passwordInput: () => cy.get("input[name='password']"),
-        loginBtn: () => cy.get("input[type='submit']"),
-        errorMessage: () => cy.get("h2"),
-    };
-
-    typeUsername(username) {
-        this.elements.usernameInput().type(username);
+    constructor() {
+        this.menu = "#hidden > li:nth-child(3) > a";
+        this.option = ".menu-drop > a:nth-child(2)";
+        this.url = "/login";
+        this.email = "input[name='email']";
+        this.password = "input[name='password']";
+        this.submitButton = "input:nth-child(3)";
+        this.errorMessageLabel = "h2";
+        this.redirectUrl = "/";
     }
 
-    typePassword(password) {
-        this.elements.passwordInput().type(password);
+    fillEmail(email) {
+        cy.get(this.email).type(email);
     }
 
-    clickLogin() {
-        this.elements.loginBtn().click();
+    fillPassword(password) {
+        cy.get(this.password).type(password);
+    }
+
+    clickSubmitButton() {
+        cy.get(this.submitButton).click();
     }
 }
 

@@ -4,31 +4,29 @@ Feature: Login page
     Feature Login page will work depending on the user credentials.
 
     Background:
-        Given A user goes to the website
+        Given User goes to the website
+        And User clicks on the Menu
+        And User selects the Login option
+        Then Login Page should be loaded successfully
 
-    Scenario: Success Login
-        When A user enters the email "standard_user"
-        And A user enters the password "secret_sauce"
-        And A user clicks on the login button
-        Then the website will redirect the user back to homepage
 
-    Scenario: Blocked Login
-        When A user enters the email "locked_out_user"
-        And A user enters the password "secret_sauce"
-        And A user clicks on the login button
-        Then The error message "invalid email or password" is displayed
+    Scenario: Login Successfully
+        When User types "<email>" in email input field of Login Page
+        And User types "<password>" in password input field of Login Page
+        And User clicks on Submit button of Login Page
+        Then User should be redirected to homepage
 
-    Scenario: Incorrect email Login
-        When A user provides incorrect credentials
-            | email | password     |
-            | testName | secret_sauce |
-        And A user clicks on the login button
-        Then The error message "invalid email or password" is displayed
+        Examples:
+            | email   | password |
+            | johnsmith@gmail.com | 123@123a |
+
         
-    Scenario: Incorrect Password Login
-        When A user provides incorrect credentials
-            | email      | password     |
-            | standard_user | testPassword |
-        And A user clicks on the login button
-        Then The error message "invalid email or password" is displayed
+    Scenario: Login Unsuccessfully
+        When User types "<email>" in email input field of Login Page
+        And User types "<password>" in password input field of Login Page
+        And User clicks on Submit button of Login Page
+        Then An error message should be displayed
 
+        Examples:
+            | email   | password |
+            | johnsmith@gmail.com | zxcvbnm, |

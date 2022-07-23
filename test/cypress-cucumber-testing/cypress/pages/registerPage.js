@@ -12,7 +12,7 @@ class registerPage {
     }
 
     fillName(name) {
-        cy.get(this.fname).type(name);
+        cy.get(this.name).type(name);
     }
 
     fillEmail(email) {

@@ -9,11 +9,11 @@ Feature: Register Page
         Then Register Page should be loaded successfully
 
     Scenario: Register Successfully  
-        When User types "<name>" in name input field
-        And User types "<email>" in email input field
-        And User types "<password>" in password input field
-        And User types "<repeatPasword>" in repeat password input field
-        And User clicks on Submit button
+        When User types "<name>" in name input field of Register Page
+        And User types "<email>" in email input field of Register Page
+        And User types "<password>" in password input field of Register Page
+        And User types "<repeatPasword>" in repeat password input field of Register Page
+        And User clicks on Submit button of Register Page
         Then User should be redirected to homepage
         # And User should be able to see the <name> on the menu
 
@@ -22,11 +22,11 @@ Feature: Register Page
             | John Smith | johnsmith@gmail.com | 123@123a | 123@123a |
 
     Scenario: Register Unsuccessfully 
-        When User types "<name>" in name input field
-        And User types "<email>" in email input field
-        And User types "<password>" in password input field
-        And User types "<repeatPasword>" in repeat password input field
-        And User clicks on Submit button
+        When User types "<name>" in name input field of Register Page
+        And User types "<email>" in email input field of Register Page
+        And User types "<password>" in password input field of Register Page
+        And User types "<repeatPasword>" in repeat password input field of Register Page
+        And User clicks on Submit button of Register Page
         Then An error alert should be displayed
 
         Examples:

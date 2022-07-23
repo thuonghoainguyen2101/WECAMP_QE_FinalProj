@@ -1,41 +1,41 @@
-// import {
-//     Given,
-//     When,
-//     And,
-//     Then,
-// } from "@badeball/cypress-cucumber-preprocessor";
+import {
+    Given,
+    When,
+    And,
+    Then,
+} from "@badeball/cypress-cucumber-preprocessor";
 
-// const loginPage = require("../../pages/loginPage");
+const loginPage = require("../../pages/loginPage");
 
-// Given("A user goes to the website", () => {
-//     cy.visit("/login");
-// });
+// And User selects the Login option
+And("User selects the Login option", () => {
+    cy.get(loginPage.option).click();
+});
 
-// When("A user enters the username {string}", (username) => {
-//     loginPage.typeUsername(username);
-// });
+// Then Login Page should be loaded successfully
+Then("Login Page should be loaded successfully", () => {
+    cy.url().should("include", loginPage.url);
+});
 
-// When("A user provides incorrect credentials", (table) => {
-//     table.hashes().forEach((row) => {
-//         cy.log(row.username);
-//         cy.log(row.password);
-//         loginPage.typeUsername(row.username);
-//         loginPage.typePassword(row.password);
-//     });
-// });
+// When User types "<email>" in email input field of Login Page
+When("User types {string} in email input field of Login Page", (email) => {
+    // cy.get(loginPage.email).type(email);
+    loginPage.fillEmail(email);
+});
 
-// And("A user enters the password {string}", (password) => {
-//     loginPage.typePassword(password);
-// });
+// And User types "<password>" in password input field of Login Page
+And("User types {string} in password input field of Login Page", (password) => {
+    // cy.get(loginPage.password).type(password);
+    loginPage.fillPassword(password);
+});
 
-// And("A user clicks on the login button", () => {
-//     loginPage.clickLogin();
-// });
+// And User clicks on Submit button of Login Page
+And("User clicks on Submit button of Login Page", () => {
+    // cy.get(loginPage.submitButton).click();
+    loginPage.clickSubmitButton();
+});
 
-// Then("the website will redirect the user back to homepage", () => {
-//     cy.url().should("contains", "/");
-// });
-
-// Then("The error message {string} is displayed", (errorMessage) => {
-//     loginPage.elements.errorMessage().should("have.text", errorMessage);
-// });
+// Then An error message should be displayed
+Then("An error message should be displayed", () => {
+    cy.get(loginPage.errorMessageLabel).should("be.visible");
+});
