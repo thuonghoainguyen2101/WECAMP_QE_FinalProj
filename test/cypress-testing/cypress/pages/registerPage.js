@@ -11,10 +11,6 @@ class registerPage {
         this.redirectUrl = "/";
     }
 
-    visit() {
-        cy.visit(this.url);
-    }
-
     fillName(name) {
         cy.get(this.fname).type(name);
     }
@@ -35,3 +31,5 @@ class registerPage {
         cy.get(this.submitButton).click();
     }
 }
+
+module.exports = new registerPage();
