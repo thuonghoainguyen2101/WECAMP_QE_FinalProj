@@ -7,7 +7,7 @@ import {
 
 const loginPage = require("../../pages/loginPage");
 
-Given("A user opens a website", () => {
+Given("A user goes to the website", () => {
     cy.visit("/login");
 });
 

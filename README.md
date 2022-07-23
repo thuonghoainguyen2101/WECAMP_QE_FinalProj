@@ -1,17 +1,17 @@
 "# WECAMP_QE_FinalProj"
 
--   [ ] Unit Test achieves 40-50% coverage score (with **Jest**, JUnit, Chai, Mocha, etc.)
--   [ ] Manual API testing (**Postman**, curl, etc.)
--   [ ] API integration test scripts (with **Postman collection**).
--   [ ] Bonus: Write API integration test scripts in **supertest**, **axios**, **jest**, mocha, chai (Bonus in bonus: If using POM)
+-   [ ] Unit Test achieves 40-50% coverage score (with Jest, JUnit, Chai, Mocha, etc.)
+-   [x] Manual API testing (**Postman**, curl, etc.)
+-   [x] API integration test scripts (with **Postman collection**).
+-   [ ] Bonus: Write API integration test scripts in supertest, axios, jest, mocha, chai (Bonus in bonus: If using POM)
 
--   [ ] Verify status codes, response body and response errors. Set/Get variable for further request.
+-   [x] Verify status codes, response body and response errors. Set/Get variable for further request.
 
--   [ ] Bonus: If using **database query functions for API** javascript test scripts
+-   [x] Bonus: If using **database query functions for API** javascript test scripts
 -   [ ] Manual UI testing (visuals, functionality, user interaction, etc.)
--   [ ] UI E2E automation test scripts (with **Cypress**, Selenium WebDriver, TestCafe, etc.).
--   [ ] Bonus: If using BDD approach (Cucumber).
--   [ ] Bonus: If using POM (Page Object Model), or App Action in Cypress.
+-   [x] UI E2E automation test scripts (with **Cypress**, Selenium WebDriver, TestCafe, etc.).
+-   [x] Bonus: If using BDD approach (Cucumber).
+-   [x] Bonus: If using POM (Page Object Model), or App Action in Cypress.
 
 Lecture:
 

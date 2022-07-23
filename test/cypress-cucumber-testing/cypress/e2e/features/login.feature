@@ -4,7 +4,7 @@ Feature: Login page
     Feature Login page will work depending on the user credentials.
 
     Background:
-        Given A user opens a website
+        Given A user goes to the website
 
     Scenario: Success Login
         When A user enters the email "standard_user"

@@ -20,17 +20,12 @@ async function connectDB() {
         // show all the collections
         const collections = await mongoose.connection.db.collections();
 
-        // show all the data of each collection
-        for (let collection of collections) {
-            console.log(collection.collectionName);
-            const data = await collection.find({}).toArray();
-            console.log(data);
-        }
-
-        // a function to get sum of 2 number
-        // const sum = (a, b) => a + b;
-        // console.log(sum(1, 2));
-        
+        // // show all the data of each collection
+        // for (let collection of collections) {
+        //     console.log(collection.collectionName);
+        //     const data = await collection.find({}).toArray();
+        //     console.log(data);
+        // }
     } catch (error) {
         console.log(error);
     }
