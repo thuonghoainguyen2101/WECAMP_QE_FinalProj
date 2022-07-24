@@ -24,19 +24,8 @@ function Login(props) {
         <h2>ĐĂNG KÍ</h2>
         <form onSubmit={handleSubmit(onSubmit)} classname="form-signup">
           <input {...register("name")} placeholder="Name" required></input>
-          <input
-            {...register("email")}
-            placeholder="Email"
-            type="email"
-            required
-          ></input>
-          <input
-            {...register("password")}
-            placeholder="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          ></input>
+          <input {...register("email")} placeholder="Email" type="email"required/>
+          <input {...register("password")} placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
           <input
             {...register("repeat password")}
             placeholder=" Repeat password"
