@@ -8,13 +8,13 @@
 
 Integrated with:
 
-- [x] https://github.com/badeball/cypress-cucumber-preprocessor
-- [x] https://github.com/bahmutov/cypress-esbuild-preprocessor
-- [x] https://www.npmjs.com/package/multiple-cucumber-html-reporter
+-   [x] https://github.com/badeball/cypress-cucumber-preprocessor
+-   [x] https://github.com/bahmutov/cypress-esbuild-preprocessor
+-   [x] https://www.npmjs.com/package/multiple-cucumber-html-reporter
 
 (+ bundlers: https://github.com/badeball/cypress-cucumber-preprocessor/tree/master/examples)
 
-- ## 💻 Pre-requisites
+-   ## 💻 Pre-requisites
 
 Before you use this project you only need to have Node Js installed in your computer.
 
@@ -28,5 +28,8 @@ https://github.com/cucumber/json-formatter
 
 Install project dependencies with: npm i
 
-## 🚀 Run the demo: 
+## 🚀 Run the demo:
+
 Open the terminal and run: npm run cypress:execution
+
+Naming convention: https://stackoverflow.com/questions/45028747/suggested-naming-conventions-for-selenium-identifiers

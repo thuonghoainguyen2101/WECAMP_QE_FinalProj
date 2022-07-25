@@ -53,11 +53,4 @@
 -   /api/config/paypal
 -   /api/upload
 
-What iss Axios?
--->
-
-What is Chai?
--->
-
-What is Mocha?
---> Nyan :vvvvvvv
+Using: Mocha and Chai
