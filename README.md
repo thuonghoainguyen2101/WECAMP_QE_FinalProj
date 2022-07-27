@@ -1,9 +1,9 @@
 "# WECAMP_QE_FinalProj"
 
--   [ ] Unit Test achieves 40-50% coverage score (with Jest, JUnit, Chai, Mocha, etc.)
+-   [ ] Bonus: Unit Test achieves 40-50% coverage score (with Jest, JUnit, Chai, Mocha, etc.)
 -   [x] Manual API testing (**Postman**, curl, etc.)
 -   [x] API integration test scripts (with **Postman collection**).
--   [ ] Bonus: Write API integration test scripts in supertest, axios, jest, mocha, chai (Bonus in bonus: If using POM)
+-   [x] Bonus: Write API integration test scripts in supertest, axios, jest, **mocha, chai** (Bonus in bonus: If using POM)
 
 -   [x] Verify status codes, response body and response errors. Set/Get variable for further request.
 
@@ -19,7 +19,7 @@ Lecture:
 -   Page Object Model:
 -   Cucumber:
 
-Tool sử dụng:
+**Framework sử dụng:**
 
 -   Unit test:
 

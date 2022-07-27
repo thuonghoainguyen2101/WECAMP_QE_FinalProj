@@ -71,9 +71,17 @@ Then("User should be redirected to homepage", () => {
 
 //         And User should be able to see the <name> on the menu
 
-//          Then An error alert should be displayed
+//         Then An error alert should be displayed
 Then("An error alert should be displayed", () => {
     cy.on("window:alert", (t) => {
         expect(t).to.contains(registerPage.errorMessage);
     });
 });
+
+//         User fills the form of Register Page with the following data
+When(
+    "User fills the form of Register Page with the following data",
+    (dataTable) => {
+        registerPage.fillForm(dataTable.hashes()[0]);
+    }
+);

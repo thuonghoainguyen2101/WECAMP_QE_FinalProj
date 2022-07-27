@@ -30,6 +30,14 @@ class registerPage {
     clickSubmitButton() {
         cy.get(this.submitButton).click();
     }
+
+    fillForm(registerForm) {
+        cy.get(this.name).type(registerForm.name);
+        cy.get(this.email).type(registerForm.email);
+        cy.get(this.password).type(registerForm.password);
+        cy.get(this.repeatPassword).type(registerForm.repeatPassword);
+        cy.get(this.submitButton).click();
+    }
 }
 
 module.exports = new registerPage();

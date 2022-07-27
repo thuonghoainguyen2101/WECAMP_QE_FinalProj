@@ -1,38 +1,42 @@
 [
     {
-        "name": "John Smith",
-        "email": "johnsmith@gmail.com",
-        "password": "123@123a",
-        "repeatPassword": "123@123a"
+        "R02": {
+            "name": "John Smith",
+            "email": "johnsmith@gmail.com",
+            "password": "123@123a",
+            "repeatedPassword": "123@123a"
+        }
     },
-
     {
-        "name": "John Smith2",
-        "email": "johnsmith@gmail.com",
-        "password": "123@123a",
-        "repeatPassword": "123@123a"
+        "R04": {
+            "name": "John Smith2",
+            "email": "johnsmith@gmail.com",
+            "password": "123@123a",
+            "repeatedPassword": "123@123a"
+        }
     },
-
     {
-        "name": "John_$mith",
-        "email": "johnsmith@gmail.com",
-        "password": "123@123a",
-        "repeatPassword": "123@123a"
+        "R05": {
+            "name": "John_$mith",
+            "email": "johnsmith@gmail.com",
+            "password": "123@123a",
+            "repeatedPassword": "123@123a"
+        }
     },
-
     {
-        "name": "John Smith",
-        "email": "johnsmith@gmail.com",
-        "password": "",
-        "repeatPassword": "123@123a",
-        "errorMessage": "wrong repeat password"
+        "R06": {
+            "name": "",
+            "email": "johnsmith@gmail.com",
+            "password": "123@123a",
+            "repeatedPassword": "123@123a"
+        }
     },
-
     {
-        "name": "John Smith",
-        "email": "johnsmith@gmail.com",
-        "password": "123@123a",
-        "repeatPassword": "",
-        "errorMessage": "wrong repeat password"
+        "R07": {
+            "name": "John Smith",
+            "email": "",
+            "password": "123@123a",
+            "repeatedPassword": "123@123a"
+        }
     }
 ]
