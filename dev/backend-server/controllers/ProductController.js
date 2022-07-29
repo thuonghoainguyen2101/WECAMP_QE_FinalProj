@@ -127,8 +127,8 @@ export const UpdateProduct = expressAsyncHandler(async (req, res) => {
 
 export const DeleteProduct = expressAsyncHandler(async (req, res) => {
     const deleteProduct = await ProductModel.findById(req.params.id);
-
-    await cloudinary.uploader.destroy(deleteProduct.cloudinary_id);
+    console.log(deleteProduct);
+    // await cloudinary.uploader.destroy(deleteProduct.cloudinary_id);
 
     if (deleteProduct) {
         await deleteProduct.remove();
