@@ -31,3 +31,9 @@ Cypress.Commands.add("fillRegisterForm", (registerPage, registerForm) => {
     cy.get(registerPage.repeatPassword).type(registerForm.repeatPassword);
     cy.get(registerPage.submitButton).click();
 });
+
+Cypress.Commands.add("fillLogin", (loginPage, loginForm) => {
+    cy.get(loginPage.email).type(loginForm.email);
+    cy.get(loginPage.password).type(loginForm.password);
+    cy.get(loginPage.submitButton).click();
+});
