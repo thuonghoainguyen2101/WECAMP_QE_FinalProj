@@ -71,7 +71,8 @@ describe("Register Page", () => {
         cy.url().should("include", registerPage.url);
     });
 
-    it("Verify that all of the elements are visible and working properly", () => {
+    //UI Test - Happy case - should pass
+    it("01 - Verify that all of the elements are visible and working properly", () => {
         cy.get(registerPage.name).should("be.visible");
         cy.get(registerPage.email).should("be.visible");
         cy.get(registerPage.password).should("be.visible");
@@ -79,82 +80,49 @@ describe("Register Page", () => {
         cy.get(registerPage.submitButton).should("be.visible");
     });
 
-    it("should register a new user", () => {
+    //Error in command.js -
+    it("02 - Register new user with valid data", () => {
         cy.fixture("register.json").then((registerForms) => {
             const registerForm = registerForms[0];
-
-            // cy.get(registerPage.name).type(registerForm.name);
-            // cy.get(registerPage.email).type(registerForm.email);
-            // cy.get(registerPage.password).type(registerForm.password);
-            // cy.get(registerPage.repeatPassword).type(
-            //     registerForm.repeatPassword
-            // );
-
             cy.fillRegisterForm(registerPage, registerForm);
-
             Cypress.cy.get(registerPage.submitButton).click();
             // assert if user is redirected to homepage
             cy.url().should("include", registerPage.redirectUrl);
         });
     });
 
-    // Skip test for now
-    xit("Verify that the system add user's data into database");
+    
+    it('03 - Display window alert when input is empty', () =>{
+        cy.get(registerPage.submitButton).click();
+        cy.on("window:alert", (text)=>{
+            expect(text).to.contains("Please fill out this field.");
+        })
+    })
 
-    it("Verify that the name field should display warning message when the input has number", () => {
-        cy.fixture("register.json").then((registerForms) => {
-            const registerForm = registerForms[2];
 
-            cy.fillRegisterForm(registerPage, registerForm);
-
-            // assert if a error alert is displayed
-            cy.on("window:alert", (t) => {
-                expect(t).to.contains(registerForm.errorMessage);
-            });
-        });
+    
+    it('04 - Check name validation', () => {
     });
 
-    xit(
-        "Verify that the name field should display warning message when the input has special character"
-    );
+    
+    it('05 - Verify email validation', () =>{
 
-    xit(
-        "Verify that an error message will show up if the user submits the form with the Name input field is empty."
-    );
+    })
 
-    xit(
-        "Verify that an error message will show up if the user submits the form with the Email input field is empty."
-    );
+    it('06 - Verify password validation', ()=>{
 
-    xit(
-        "Verify that the email field should display warning message when the email address is entered without @"
-    );
+    })
 
-    xit(
-        "Verify that the email field should display warning message when the email address is entered without dot '.'"
-    );
+    //Happy case - should pass
+    it.only('07 - Check warning dialog when password and repeated password are not the same', () =>{
+        cy.fixture('register.json').then((registerForms)=>{
+            const registerForm = registerForms[0];
+            cy.fillRegisterForm(registerPage, registerForm);
+            cy.get(registerPage.submitButton).click();
+            cy.on('window:alert', (text)=>{
+                expect(text).to.contains("wrong repeat password");
+            })
+        })
+    })
 
-    xit(
-        "Verify that the email field should display warning message when the email entered has ! # $ % ^ & * ( ) , + = / ? \\ | [ ] { } ` ~ < >"
-    );
-
-    xit(
-        "Verify that the email field should display message when the email is already existed in the system"
-    );
-
-    xit(
-        "Verify that an error message will show up if the user submits the form with the Password input field is empty."
-    );
-
-    xit(
-        "Verify that an error message will show up if the user submits the form with the Repeat Password input field is empty."
-    );
-
-    xit(
-        "Verify that the system display message if the repeated password is not the same with the password"
-    );
-
-    xit("Verify that the system display message if the password is too short");
-
-    xit("Verify that the password and repeated password can be copy pasted");
 });
