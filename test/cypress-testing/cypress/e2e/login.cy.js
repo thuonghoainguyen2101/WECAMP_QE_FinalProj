@@ -17,7 +17,7 @@ describe('Login Page', ()=>{
         cy.wait(5000);
     }); 
 
-    // //Happy case - should pass
+    // //Happy case - should pass - Cái này cũng chưa biết làm luôn
     // it.only('02 - Input box should have properly placeholder', () =>{
     //     cy.get(loginPage.email).its('placeholder').should('contain', 'Email');
     // })
