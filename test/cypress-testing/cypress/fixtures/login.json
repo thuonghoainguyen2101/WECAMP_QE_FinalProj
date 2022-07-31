@@ -1,0 +1,22 @@
+[
+    {
+        "email":"nhi@gmail.com",
+        "password":"123@123a"
+    },
+
+    {
+        "email":"johnsmith@gmail.com",
+        "password":"123@123a"
+    },
+
+    {
+        "email":"nhi@gmail.com",
+        "password":"123@123aa"
+    },
+
+    {
+        "email":"",
+        "password":""
+    }
+
+]
