@@ -25,10 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("fillRegisterForm", (registerPage, registerForm) => {
+    
     cy.get(registerPage.name).type(registerForm.name);
     cy.get(registerPage.email).type(registerForm.email);
     cy.get(registerPage.password).type(registerForm.password);
-    cy.get(registerPage.repeatPassword).type(registerForm.repeatPassword);
+    cy.get(registerPage.repeatPassword).type(registerForm.repeatedPassword);
     cy.get(registerPage.submitButton).click();
 });
 

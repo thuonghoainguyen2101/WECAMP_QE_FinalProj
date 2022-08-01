@@ -11,25 +11,25 @@ class registerPage {
         this.redirectUrl = "/";
     }
 
-    fillName(name) {
-        cy.get(this.fname).type(name);
-    }
+    // fillName(name) {
+    //     cy.get(this.fname).type(name);
+    // }
 
-    fillEmail(email) {
-        cy.get(this.email).type(email);
-    }
+    // fillEmail(email) {
+    //     cy.get(this.email).type(email);
+    // }
 
-    fillPassword(password) {
-        cy.get(this.password).type(password);
-    }
+    // fillPassword(password) {
+    //     cy.get(this.password).type(password);
+    // }
 
-    fillRepeatPassword(repeatPassword) {
-        cy.get(this.repeatPassword).type(repeatPassword);
-    }
+    // fillRepeatPassword(repeatPassword) {
+    //     cy.get(this.repeatPassword).type(repeatPassword);
+    // }
 
-    clickSubmitButton() {
-        cy.get(this.submitButton).click();
-    }
+    // clickSubmitButton() {
+    //     cy.get(this.submitButton).click();
+    // }
 }
 
 module.exports = new registerPage();

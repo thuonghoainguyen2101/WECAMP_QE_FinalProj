@@ -1,67 +1,16 @@
 /// <reference types="cypress" />
 
-// [x] Verify that all of the elements are visible and working properly
-// [x] Verify that the user should be able to register an account
-// [ ] Verify that the system add user's data into database
-// [ ] Verify that the name field should display warning message when the input has number
-// [ ] Verify that the name field should display warning message when the input has special character
-// [ ] Verify that an error message will show up if the user submits the form with the Name input field is empty.
-// [ ] Verify that an error message will show up if the user submits the form with the Email input field is empty.
-// [ ] Verify that the email field should display warning message when the email address is entered without @
-// [ ] Verify that the email field should display warning message when the email address is entered without dot '.'
-// [ ] Verify that the email field should display warning message when the email entered has ! # $ % ^ & * ( ) , + = / ? \ | [ ] { } ` ~ < >
-// [ ] Verify that the email field should display message when the email is already existed in the system
-// [ ] Verify that an error message will show up if the user submits the form with the Password input field is empty.
-// [ ] Verify that an error message will show up if the user submits the form with the Repeat Password input field is empty.
-// [ ] Verify that the system display message if the repeated password is not the same with the password
-// [ ] Verify that the system display message if the password is too short
-// [ ] Verify that the password and repeated password can be copy pasted
+// [x]Verify that all of the elements are visible and working properly
+// []The user should be able to register an account  with valid date
+// []Verify the alert dislog when input fiels are empty
+// []Verify name validation
+// []Verify email validation
+// []Verify password validation
+// [] Verify dialog alert when password and repeated password are not the same
 
 // const registerPage = require("../pages/registerPage");
 import registerPage from "../pages/registerPage";
 
-// describe("Register", () => {
-//     beforeEach(() => {
-//         cy.visit("http://localhost:3000");
-//         cy.get("#hidden > li:nth-child(3) > a").click();
-//         cy.get(".menu-drop > a:nth-child(1)").click();
-//         cy.url().should("include", "/register");
-//     });
-
-//     it("should register a new user", () => {
-//         cy.fixture("register.json").then((registerForms) => {
-//             const registerForm = registerForms[0];
-
-//             cy.get('input[name="name"]').type(registerForm.name);
-//             cy.get('input[name="email"]').type(registerForm.email);
-//             cy.get('input[name="password"]').type(registerForm.password);
-//             cy.get('input[name="repeat password"]').type(
-//                 registerForm.repeatPassword
-//             );
-//             cy.get("input:nth-child(5)").click();
-//             // assert if user is redirected to homepage
-//             cy.url().should("include", "/");
-//         });
-//     });
-
-//     it("should NOT register a new user", () => {
-//         cy.fixture("register.json").then((registerForms) => {
-//             const registerForm = registerForms[2];
-
-//             cy.get('input[name="name"]').type(registerForm.name);
-//             cy.get('input[name="email"]').type(registerForm.email);
-//             cy.get('input[name="password"]').type(registerForm.password);
-//             cy.get('input[name="repeat password"]').type(
-//                 registerForm.repeatPassword
-//             );
-//             cy.get("input:nth-child(5)").click();
-//             // assert if a error alert is displayed
-//             cy.on("window:alert", (t) => {
-//                 expect(t).to.contains(registerForm.errorMessage);
-//             });
-//         });
-//     });
-// });
 
 describe("Register Page", () => {
     beforeEach(() => {
@@ -80,12 +29,12 @@ describe("Register Page", () => {
         cy.get(registerPage.submitButton).should("be.visible");
     });
 
-    //Error in command.js -
-    it("02 - Register new user with valid data", () => {
+    //
+    it.only("02 - Register new user with valid data", () => {
         cy.fixture("register.json").then((registerForms) => {
             const registerForm = registerForms[0];
             cy.fillRegisterForm(registerPage, registerForm);
-            Cypress.cy.get(registerPage.submitButton).click();
+            //Cypress.cy.get(registerPage.submitButton).click();
             // assert if user is redirected to homepage
             cy.url().should("include", registerPage.redirectUrl);
         });
@@ -113,7 +62,7 @@ describe("Register Page", () => {
 
     })
 
-    //Happy case - should pass
+    //Happy case - should pass (command error)
     it.only('07 - Check warning dialog when password and repeated password are not the same', () =>{
         cy.fixture('register.json').then((registerForms)=>{
             const registerForm = registerForms[0];
