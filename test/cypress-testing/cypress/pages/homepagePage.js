@@ -34,5 +34,8 @@ class homePage{
         this.payment = ".footer-top-delivery > li:nth-child(2) > a";
         this.voucher = "footer-top-delivery > li:nth-child(3) > a";
     }
+
+    // static clickLogo(){cy.get(this.logo).click();}
 }
 module.exports = new homePage();
+

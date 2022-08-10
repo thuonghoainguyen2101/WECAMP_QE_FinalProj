@@ -10,9 +10,9 @@ describe("Homepage", () => {
 
 
     //Happy case - should pass
-    it('01 - Verify Logo on menu bar redirect user to correct page', () =>{
+    it.only('01 - Verify Logo on menu bar redirect user to correct page', () =>{
 
-        // const pages = ['']        
+              
         cy.get(homepagePage.logo).click();
         cy.url().should("include", "/");
         cy.go('back');
@@ -61,10 +61,15 @@ describe("Homepage", () => {
 
     
     it('04 - Change images correctly', () =>{
+        //Visit page
+        //hover mouse over carousel -> button display
+        //click on button to change images
 
     })
 
     it('05 - Redirect to product\'s detail page', () =>{
+        //Visit page 
+        //Scroll to product and click on product image
         
     })
 

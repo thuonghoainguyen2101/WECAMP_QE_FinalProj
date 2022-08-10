@@ -7,12 +7,14 @@ chai.should();
 
 chai.use(chaiHttp);
 
-describe("Test User API", () => {
+describe("Test UserController API", () => {
     // -   /user/register
-    describe("POST /user/register", () => {});
+    test("POST /user/register", () => {});
 
     // -   /user/login
-    describe("POST /user/login", () => {});
+    test("POST /user/login", () => {
+        
+    });
 
     // -   /user/
     describe("GET /user/", () => {});
