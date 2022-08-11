@@ -31,7 +31,7 @@ describe('Login Page', ()=>{
         })
     })
 
-    //Happy case - should pass - Cái này bị lỗi khùn điêm gì nè
+    //Happy case - should pass
     it('04 - Login with invalid email and valid password', () =>{
         cy.fixture('login.json').then((loginData) =>{
             const loginInfo = loginData[1];
@@ -72,7 +72,7 @@ describe('Login Page', ()=>{
     // })
 
     //
-    it.only('09 - Verify "Tạo tài khoản" redirect user to register page', () =>{
+    it('09 - Verify "Tạo tài khoản" redirect user to register page', () =>{
         cy.get('a').click();
     })
 

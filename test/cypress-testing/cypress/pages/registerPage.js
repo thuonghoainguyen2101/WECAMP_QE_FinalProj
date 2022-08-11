@@ -11,6 +11,7 @@ class registerPage {
         this.redirectUrl = "/";
     }
 
+
     // fillName(name) {
     //     cy.get(this.fname).type(name);
     // }

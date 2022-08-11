@@ -1,13 +1,5 @@
 /// <reference types="cypress" />
 
-// [x]Verify that all of the elements are visible and working properly
-// []The user should be able to register an account  with valid date
-// []Verify the alert dislog when input fiels are empty
-// []Verify name validation
-// []Verify email validation
-// []Verify password validation
-// [] Verify dialog alert when password and repeated password are not the same
-
 // const registerPage = require("../pages/registerPage");
 import registerPage from "../pages/registerPage";
 
@@ -29,8 +21,8 @@ describe("Register Page", () => {
         cy.get(registerPage.submitButton).should("be.visible");
     });
 
-    //
-    it.only("02 - Register new user with valid data", () => {
+    //Happy case should pass
+    it("02 - Register new user with valid data", () => {
         cy.fixture("register.json").then((registerForms) => {
             const registerForm = registerForms[0];
             cy.fillRegisterForm(registerPage, registerForm);
@@ -48,22 +40,81 @@ describe("Register Page", () => {
         })
     })
 
-
-    
-    it('04 - Check name validation', () => {
+    it('04.1 - Check name validation - Blank spaces', () => {
+        cy.fixture('register.json').then((registerForms) =>{
+            let isAbleToRegister = false;
+            let homepage = registerPage.redirectUrl;
+            const registerForm = registerForms[1];
+            cy.fillRegisterForm(registerPage, registerForm);
+            if(homepage) isAbleToRegister = true;
+            expect(isAbleToRegister).to.be.false;
+            //cy.url().should("not.include", registerPage.redirectUrl);
+        })
     });
-
     
-    it('05 - Verify email validation', () =>{
-
+    it('04.2 - Check name validation - Special character', () => {
+        cy.fixture('register.json').then((registerForms) =>{
+            let isAbleToRegister = true;
+            let homepage = registerPage.redirectUrl;
+            const registerForm = registerForms[2];
+            cy.fillRegisterForm(registerPage, registerForm);
+            
+            if(homepage) isAbleToRegister = true;
+            expect(isAbleToRegister).to.be.false;
+            // cy.url().should("not.include", registerPage.redirectUrl);
+        })
+    });
+    
+    it('04.3 - Check name validation - Number', () => {
+        cy.fixture('register.json').then((registerForms) =>{
+            let isAbleToRegister = false;
+            let homepage = registerPage.redirectUrl;
+            const registerForm = registerForms[3];
+            cy.fillRegisterForm(registerPage, registerForm);
+            if(homepage) isAbleToRegister = true;
+            
+            expect(isAbleToRegister).to.be.false;
+            //cy.url().should("not.include", registerPage.redirectUrl);
+        })
+    });
+    
+    //Happy case  - should pass
+    it('05.1 - Verify email validation - Missing @', () =>{
+        cy.fixture('register.json').then((registerForms) =>{
+            const registerForm = registerForms[4];
+            cy.fillRegisterForm(registerPage, registerForm);
+            cy.on('window:alert', (text) =>{
+                expect(text).to('include', 'Missing @')
+            })
+        })
     })
 
-    it('06 - Verify password validation', ()=>{
-
+    //Happy case - should pass
+    it('05.2 - Verify email validation - Missing .', () =>{
+        cy.fixture('register.json').then((registerForms) =>{
+            const registerForm = registerForms[5];
+            cy.fillRegisterForm(registerPage, registerForm);
+            cy.on('window:alert', (text) =>{
+                expect(text).to('include', 'Missing .')
+            })
+            cy.url().should("not.include", registerPage.redirectUrl);
+        })
     })
 
-    //Happy case - should pass (command error)
-    it.only('07 - Check warning dialog when password and repeated password are not the same', () =>{
+    //Happy case - should pass
+    it('05.3 - Verify email validation - Special character', () =>{
+        cy.fixture('register.json').then((registerForms) =>{
+            const registerForm = registerForms[5];
+            cy.fillRegisterForm(registerPage, registerForm);
+            cy.on('window:alert', (text) =>{
+                expect(text).to('have', 'Invalid email')
+            })
+            cy.url().should("not.include", registerPage.redirectUrl);
+        })
+    })
+
+    //Happy case - should pass
+    it('08 - Check warning dialog when password and repeated password are not the same', () =>{
         cy.fixture('register.json').then((registerForms)=>{
             const registerForm = registerForms[0];
             cy.fillRegisterForm(registerPage, registerForm);
@@ -73,5 +124,20 @@ describe("Register Page", () => {
             })
         })
     })
+
+    //Should fail
+    it('09 - Verify user should not register with an existed email', () =>{
+        cy.fixture('register.json').then((registerForms)=>{
+            const registerForm = registerForms[0];
+            cy.fillRegisterForm(registerPage, registerForm);
+            cy.on('window:alert', (text) =>{
+                expect(text).to.contains('The email address has already been registered');
+            });
+            cy.url().should("not.include", registerPage.redirectUrl);
+        })
+    })
+
+    //if user able to register with email already registered
+    //check if user able to login with that email adress on login.cy.js
 
 });
