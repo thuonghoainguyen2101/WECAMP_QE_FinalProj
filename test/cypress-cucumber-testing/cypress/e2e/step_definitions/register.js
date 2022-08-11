@@ -7,6 +7,15 @@ import {
 
 import registerPage from "../../pages/registerPage";
 
+Before(() => {
+    //Code to delete customer if it exists
+    cy.request({
+        method: "DELETE",
+        url: "http://localhost:3000/user/delete",
+        failOnStatusCode: false,
+    });
+});
+
 //         Given User goes to the website
 Given("User goes to the website", () => {
     cy.visit("/");
@@ -73,9 +82,12 @@ Then("User should be redirected to homepage", () => {
 
 //         Then An error alert should be displayed
 Then("An error alert should be displayed", () => {
-    cy.on("window:alert", (t) => {
-        expect(t).to.contains(registerPage.errorMessage);
-    });
+    // cy.on("window:alert", (t) => {
+    //     // expect(t).to.contains(registerPage.errorMessage);
+    //     expect(t).should("be.visible");
+    // });
+
+    cy.on("");
 });
 
 //         User fills the form of Register Page with the following data

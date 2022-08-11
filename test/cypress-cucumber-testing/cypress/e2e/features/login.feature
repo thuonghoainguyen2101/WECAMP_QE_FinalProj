@@ -10,7 +10,10 @@ Feature: Login page
         Then Login Page should be loaded successfully
 
 
-    Scenario: Login Successfully
+    Scenario: L01 - Verify if the Login page has function reset password/Forgot password
+    Scenario: L02 - Verify that the email's and password box has properly placeholder
+
+    Scenario: L03 - Verify if user is able to login with a valid email and password
         When User types "<email>" in email input field of Login Page
         And User types "<password>" in password input field of Login Page
         And User clicks on Submit button of Login Page
@@ -21,7 +24,7 @@ Feature: Login page
             | johnsmith@gmail.com | 123@123a |
 
         
-    Scenario: Login Unsuccessfully
+    Scenario: L02 - Verify that the email's and password box has properly placeholder
         When User types "<email>" in email input field of Login Page
         And User types "<password>" in password input field of Login Page
         And User clicks on Submit button of Login Page

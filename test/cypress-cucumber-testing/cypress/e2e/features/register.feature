@@ -1,19 +1,3 @@
-# // [ ] Verify that all of the elements are visible and working properly
-# // [ ] Verify that the user should be able to register an account
-# // [ ] Verify that the system add user's data into database
-# // [ ] Verify that the name field should display warning message when the input has number
-# // [ ] Verify that the name field should display warning message when the input has special character
-# // [ ] Verify that an error message will show up if the user submits the form with the Name input field is empty
-# // [ ] Verify that an error message will show up if the user submits the form with the Email input field is empty
-# // [ ] Verify that the email field should display warning message when the email address is entered without @
-# // [ ] Verify that the email field should display warning message when the email address is entered without dot '.'
-# // [ ] Verify that the email field should display warning message when the email entered has ! # $ % ^ & * ( ) , + = / ? \ | [ ] { } ` ~ < >
-# // [ ] Verify that the email field should display message when the email is already existed in the system
-# // [ ] Verify that an error message will show up if the user submits the form with the Password input field is empty
-# // [ ] Verify that an error message will show up if the user submits the form with the Repeat Password input field is empty
-# // [ ] Verify that the system display message if the repeated password is not the same with the password
-# // [ ] Verify that the system display message if the password is too short
-# // [ ] Verify that the password and repeated password can be copy pasted
 
 Feature: Register Page
 
@@ -25,9 +9,9 @@ Feature: Register Page
         And User selects the Register option
         Then Register Page should be loaded successfully
 
-    Scenario: Verify that all of the elements are visible and working properly
+    # Scenario: R01 - Verify that all of the elements are visible and working properly
 
-    Scenario: Verify that the user should be able to register an account
+    Scenario: R02 - The user should be able to register an account with validdate data
         When User types "<name>" in name input field of Register Page
         And User types "<email>" in email input field of Register Page
         And User types "<password>" in password input field of Register Page
@@ -40,74 +24,41 @@ Feature: Register Page
             | name | email | password | repeatPassword |
             | John Smith | johnsmith@gmail.com | 123@123a | 123@123a |
 
-    Scenario: Verify that the system add user's data into database
-
-    Scenario: Verify that the name field should display warning message when the input has number
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
+    Scenario: R03 - Verify the alert dialog when input fiels are empty
+        When User clicks on Submit button of Register Page
         Then An error alert should be displayed
 
-    Scenario: Verify that the name field should display warning message when the input has special character
+    Scenario: R04 - Verify name validation
         When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
+                | name | email | password | repeatPassword |
+                | <name> | <email> | <password> | <repeatPassword> |
         Then An error alert should be displayed
-    Scenario: Verify that an error message will show up if the user submits the form with the Name input field is empty
+        Examples:
+                | 1234!@#$ | johnsmith@gmail.com | 123@123a | 123@123a |
+                | 1235!@#$ | johnsmith@gmail.com | 123@123a | 123@123a |
+                | 12346!@#$ | johnsmith@gmail.com | 123@123a | 123@123a |
+
+    Scenario: R05 - Verify email validation 
         When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
+                | name | email | password | repeatPassword |
+                | John Smith | johnsmith | 123@123a | 123@123a |    
         Then An error alert should be displayed
-    Scenario: Verify that an error message will show up if the user submits the form with the Email input field is empty
+
+    Scenario: R06 - Verify password validation
         When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
+                | name | email | password | repeatPassword |
+                | John Smith | johnsmith@gmail.com | 123@123a | 123@123a |
         Then An error alert should be displayed
-    Scenario: Verify that the email field should display warning message when the email address is entered without @
+
+    Scenario: R07 - Verify repeat password validation
         When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
+                | name | email | password | repeatPassword |
+                | John Smith | johnsmith@gmail.com | 123@123a | a |
         Then An error alert should be displayed
-    Scenario: Verify that the email field should display warning message when the email address is entered without dot '.'
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that the email field should display warning message when the email entered has ! # $ % ^ & * ( ) , + = / ? \ | [ ] { } ` ~ < >
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that the email field should display message when the email is already existed in the system
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that an error message will show up if the user submits the form with the Password input field is empty
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that an error message will show up if the user submits the form with the Repeat Password input field is empty
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that the system display message if the repeated password is not the same with the password
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that the system display message if the password is too short
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
-    Scenario: Verify that the password and repeated password can be copy pasted
-        When User fills the form of Register Page with the following data
-            | name | email | password | repeatPassword |
-            | John Smith | johnsmith@gmail.com | 123@123a | wrong repeat password |
-        Then An error alert should be displayed
+
+
     
 
+    
 
+    
