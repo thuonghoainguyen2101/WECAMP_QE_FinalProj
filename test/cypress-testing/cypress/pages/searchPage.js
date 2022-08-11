@@ -3,7 +3,7 @@ export class searchPage {
 
         //header
         this.logo = "span > a"; 
-        this.searchBar = '.search';
+        this.searchBar = 'input[name="search"]';
         this.searchIcon ="form > .anticon > svg"
         this.homepageOption = "#hidden > li:nth-child(1) > a";
         this.productOption = "#hidden > li:nth-child(2) > a";
@@ -12,9 +12,18 @@ export class searchPage {
         this.loginOption = ".menu-drop > a:nth-child(2)";
         this.registerOption = ".menu-drop > a:nth-child(1)";
         this.numOfItems =".count";
-
         this.message="h2";
-
+        
+        this.product=".hotsale-listproduct-product:nth-child(1) > a"
+        this.buyButton=".hotsale-listproduct-product:nth-child(1) > .buy > a"
         
     }
+
+    // clickSearchButton(){
+    //     cy.get(this.searchIcon).click();
+    //     return this;
+    // }
+
+
 }
+module.exports = new searchPage();

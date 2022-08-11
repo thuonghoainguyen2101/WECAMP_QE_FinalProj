@@ -38,3 +38,4 @@ Cypress.Commands.add("fillLogin", (loginPage, loginForm) => {
     cy.get(loginPage.password).type(loginForm.password);
     cy.get(loginPage.submitButton).click();
 });
+
