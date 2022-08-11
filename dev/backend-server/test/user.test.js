@@ -63,4 +63,9 @@ describe('Login POST/user/login', () =>{
 
 describe(' Get all user GET /user', ()=>{
     let request;
+
+    test('01 Get all user', async()=>{
+        
+    })
+
 })
