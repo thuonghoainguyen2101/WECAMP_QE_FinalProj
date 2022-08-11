@@ -67,7 +67,7 @@ describe("Product Detail Page", () => {
 
             it("D02 - 01 - Verify product name is correct", () => {
                 cy.get(productDetailPage.productName).should("have.text", 
-            }
+            })
 
 
-});
+})
