@@ -5,7 +5,47 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-<<<<<<< HEAD
+// export const createOrder = expressAsyncHandler(async (req, res) => {
+//     if (req.body.orderItems.length === 0) {
+//         res.status(400).send({ message: "cart is emty" });
+//     } else {
+//         const order = new OrderModel({
+//             order_code: "",
+//             to_ward_code: req.body.to_ward_code,
+//             to_district_id: req.body.to_district_id,
+//             cancelOrder: false,
+
+//             orderItems: req.body.orderItems,
+//             shippingAddress: {
+//                 province: req.body.shippingAddress.province,
+//                 district: req.body.shippingAddress.district,
+//                 ward: req.body.shippingAddress.ward,
+//                 detail: req.body.shippingAddress.more,
+//                 name: req.body.shippingAddress.name,
+//                 phone: req.body.shippingAddress.phone,
+//             },
+//             paymentMethod: req.body.paymentMethod,
+//             paymentResult: req.body.paymentResult
+//                 ? {
+//                       id: req.body.paymentResult.id,
+//                       status: req.body.paymentResult.status,
+//                       update_time: req.body.paymentResult.update_time,
+//                       email_address: req.body.paymentResult.payer.email_address,
+//                   }
+//                 : "",
+//             totalPrice: req.body.totalPrice,
+//             status: req.body.status ? req.body.status : "pendding",
+//             name: req.body.name,
+//             user: req.body.user,
+//         });
+
+//         const createOrder = await order.save();
+//         res.status(201).send({
+//             message: "new order created",
+//             order: createOrder,
+//         });
+//     }
+
 export const createOrder = expressAsyncHandler(async (req, res) => {
     if (req.body.orderItems.length === 0) {
         res.status(400).send({ message: "cart is emty" });
@@ -46,45 +86,6 @@ export const createOrder = expressAsyncHandler(async (req, res) => {
             order: createOrder,
         });
     }
-=======
-export const createOrder = expressAsyncHandler(async (req, res) => {              
-  if (req.body.orderItems.length === 0) {
-    res.status(400).send({ message: "cart is emty" });
-  } else {
-    const order = new OrderModel({
-      order_code: "",
-      to_ward_code: req.body.to_ward_code,
-      to_district_id: req.body.to_district_id,
-      cancelOrder: false,
-
-      orderItems: req.body.orderItems,
-      shippingAddress: {
-        province: req.body.shippingAddress.province,
-        district: req.body.shippingAddress.district,
-        ward: req.body.shippingAddress.ward,
-        detail: req.body.shippingAddress.more,
-        name: req.body.shippingAddress.name,
-        phone: req.body.shippingAddress.phone,
-      },
-      paymentMethod: req.body.paymentMethod,
-      paymentResult: req.body.paymentResult
-        ? {
-            id: req.body.paymentResult.id,
-            status: req.body.paymentResult.status,
-            update_time: req.body.paymentResult.update_time,
-            email_address: req.body.paymentResult.payer.email_address,
-          }
-        : "",
-      totalPrice: req.body.totalPrice,
-      status: req.body.status ? req.body.status : "pendding",
-      name: req.body.name,
-      user: req.body.user,
-    });
-
-    const createOrder = await order.save();
-    res.status(201).send({ message: "new order created", order: createOrder });
-  }
->>>>>>> b72be4a1c9eda73466c47fa2a4a0b31c86024ab7
 });
 
 export const clientCancelOrder = expressAsyncHandler(async (req, res) => {
