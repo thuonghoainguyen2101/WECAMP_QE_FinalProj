@@ -20,6 +20,7 @@ class homePage {
         this.prevButton = ".prev";
 
         //Product section
+        this.buyButtonItem1 = "#hotsale\ iphone .hotsale-listproduct-product:nth-child(4) > .buy > a"
 
         //Footer
         this.aboutUs = ".footer-top-about > li:nth-child(1) > a";
