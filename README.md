@@ -1,5 +1,9 @@
 "# WECAMP_QE_FinalProj"
 
+Test Plan: https://docs.google.com/document/d/1SJJiuS39z0og_AMtnheFLDlcgrkFymX2eYWUdt1wrfQ/edit
+Test Cases: https://docs.google.com/spreadsheets/d/1jp0f-TZcZMtmeNl9m0Folif63TQhuWK19H-tyHa4RZo/edit
+Bug Report: https://docs.google.com/spreadsheets/d/1f0OVkbIaTO0OpH1vYYyfPWi5xKb_ChXOg5NP5UbZpKM/edit?usp=drive_web&ouid=110510485291910340162
+
 -   [ ] Bonus: Unit Test achieves 40-50% coverage score (with Jest, JUnit, Chai, Mocha, etc.)
 -   [x] Manual API testing (**Postman**, curl, etc.)
 -   [x] API integration test scripts (with **Postman collection**).
