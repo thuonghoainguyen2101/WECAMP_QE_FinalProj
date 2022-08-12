@@ -147,11 +147,6 @@ describe("Product Detail Page", () => {
         });
     });
 
-<<<<<<< HEAD
-            it("D02 - 01 - Verify product name is correct", () => {
-                cy.get(productDetailPage.productName).should("have.text", 
-            })
-=======
     describe("D05 - Verify the button 'Trả góp qua thẻ' is able to click on and redirect user to correct page", () => {
         it("The system redirect user to correct page when user click on Trả góp qua thẻ button", () => {
             cy.get(productDetailPage.installmentButton2).click({ force: true });
@@ -162,15 +157,10 @@ describe("Product Detail Page", () => {
             );
         });
     });
->>>>>>> f64d0faf8aa682208f39ff1652bbb83386f75413
 
     describe("D06 - Verify the button 'Gửi đánh giá' is able to click on and trigger rating stars for user to rate", () => {});
 
-<<<<<<< HEAD
-})
-=======
     describe("D07 - Verify the function rating is able to send and display the feedback of user after sent", () => {});
 
     describe("D08 - Verify the comment box on detail page is able to type in and be sent", () => {});
 });
->>>>>>> f64d0faf8aa682208f39ff1652bbb83386f75413
