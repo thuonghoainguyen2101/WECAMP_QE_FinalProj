@@ -120,7 +120,7 @@ describe("Product Detail Page", () => {
     });
 
     describe("D03 - Verify the button 'Mua ngay' is able to click on and add the product to cart", () => {
-        it("The system add product to cart when user click on Mua ngay button", () => {
+        it("The Cart Icon should be increased 1 when user click on Mua ngay button", () => {
             cy.get(productDetailPage.numberOfItems).then(($number) => {
                 const previousCartCount = parseInt($number.text());
                 cy.get(productDetailPage.buyNowButton).click({ force: true });
@@ -132,6 +132,8 @@ describe("Product Detail Page", () => {
                     );
             });
         });
+
+        it("The system should add the corressponding product to cart", () => {});
     });
 
     describe("D04 - Verify the button 'Trả góp 0%' is able to click on and redirect user to correct page", () => {
